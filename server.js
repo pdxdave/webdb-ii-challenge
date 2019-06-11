@@ -15,7 +15,6 @@ server.use(logger);
 server.use(cors());
 
 
-
 // router 
 const ZooRouter = require('./zoos/zoo_router');
 
@@ -24,6 +23,7 @@ server.use('/api/zoos', ZooRouter);
 
 function logger(req, res, next) {
     console.log(`${req.method} Request`)
+    next();
 };
 
 module.exports = server;

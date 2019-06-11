@@ -7,7 +7,8 @@ const router = express.Router();
 
 
 // GET all animals
-router.get('/api/zoos', (req, res) => {
+router.get('/', (req, res) => {
+    console.log('a string')
     db.find()                 // this references find on zoo_model
     .then(zoos => {
       res.status(200).json(zoos)
@@ -18,7 +19,7 @@ router.get('/api/zoos', (req, res) => {
 })
 
 // GET animals by ID
-router.get('/api/zoos/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     // db('zoos')
     // .where({id: req.params.id})
     db.findById(req.params.id)
@@ -31,7 +32,7 @@ router.get('/api/zoos/:id', (req, res) => {
   })
   
   // POST  a new animal
-  router.post('/api/zoos', (req, res) => {
+  router.post('/', (req, res) => {
     db.add(req.body)
     // .insert(req.body, 'id')
     .then(ids => {
@@ -43,7 +44,7 @@ router.get('/api/zoos/:id', (req, res) => {
   })
   
   // UPDATE an animal
-  router.put('/api/zoos/:id', (req, res) => {
+  router.put('/:id', (req, res) => {
     //  db('zoos')
     //  .where({id: req.params.id})
     //  .update(change)
@@ -63,7 +64,7 @@ router.get('/api/zoos/:id', (req, res) => {
   
   
   // REMOVE an animal
-router.delete('/api/zoos/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     db.remove(req.params.id)
     // .where({ id: req.params.id})
     // .del()
