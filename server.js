@@ -17,8 +17,10 @@ server.use(cors());
 
 // router 
 const ZooRouter = require('./zoos/zoo_router');
+const BearsRouter = require('./bears/bears_router');
 
 server.use('/api/zoos', ZooRouter);
+server.use('/api/bears', BearsRouter);
 
 
 function logger(req, res, next) {
